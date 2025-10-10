@@ -1,0 +1,6 @@
+{
+  "samples": [
+    {"prompt_type": "how-to", "citations": ["https://example.com/how-to-1", "https://competitor.com/how"]},
+    {"prompt_type": "comparison", "citations": ["https://competitor.com/compare-1"]}
+  ]
+}
