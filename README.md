@@ -128,9 +128,9 @@ flowchart TD
 
 ```bash
 
-gitclonehttps://github.com/your-username/geo-gap-compass.git
+gitclone https://github.com/SanaAdeelKhan/geo-gap-compass.git
 
-cdgeo-gap-compass
+cd geo-gap-compass
 
 ```
 
@@ -140,9 +140,9 @@ cdgeo-gap-compass
 
 ```bash
 
-cdbackend
+cd backend
 
-pipinstall-rrequirements.txt
+pip install-requirements.txt
 
 uvicornapp:app--reload
 

@@ -1,33 +1,39 @@
 # backend/main.py
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from backend.routes import domain_insights, prompts, citations, analyze
+from backend.routes import prompts, citations, analyze, domain_insights
 
+app = FastAPI(
+    title="GEO Gap Compass - Backend",
+    version="0.1.0",
+    description="OpenAI-powered brand visibility analysis"
+)
 
-app = FastAPI(title="GEO Gap Compass - Backend")
-
-# ✅ Allow frontend origins
-origins = ["http://localhost:3000", "http://127.0.0.1:3000"]
+# CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-# ✅ Routers
-app.include_router(prompts.router, prefix="/prompts", tags=["prompts"])
-app.include_router(citations.router, prefix="/citations", tags=["citations"])
-app.include_router(domain_insights.router, prefix="/insights", tags=["domain insights"])
-app.include_router(analyze.router, tags=["analyze"])  # ✅ NEW endpoint for /analyze_domains/
+# Include routers
+app.include_router(prompts.router)
+app.include_router(citations.router)
+app.include_router(analyze.router)
+app.include_router(domain_insights.router)
 
-# ✅ Health check
-@app.get("/health")
-async def health():
-    return {"status": "ok"}
 
-# ✅ Root
 @app.get("/")
 async def root():
-    return {"message": "GEO Gap Compass Backend is running successfully 🚀"}
+    return {"message": "GEO Gap Compass API with OpenAI", "status": "active"}
+
+
+@app.get("/health")
+async def health():
+    from backend.utils.ai_client import OPENAI_AVAILABLE
+    return {
+        "status": "healthy",
+        "openai_enabled": OPENAI_AVAILABLE
+    }
