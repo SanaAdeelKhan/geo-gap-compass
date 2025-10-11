@@ -12,3 +12,7 @@ __pycache__/
 *.pyd
 .env
 .env.local
+.env
+__pycache__/
+node_modules/
+*.pyc
