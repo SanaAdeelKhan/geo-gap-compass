@@ -18,7 +18,7 @@ The tool identifies **citation gaps** — topics or prompt categories where your
 
 ## 🏁 Hackathon Track
 
--**Track:** Track#01 Intelligent GEO (Generative Engine Optimization) Insights
+-**Track:**Track 1: AI Visibility & Prompt Discovery
 
 -**Category:** AI Search Visibility & SEO Intelligence
 
@@ -288,6 +288,7 @@ OPENAI_API_KEY=your_openai_api_key
 ## 🧾 License
 
 MIT License © 2025  Team Green
+
 
 
 
