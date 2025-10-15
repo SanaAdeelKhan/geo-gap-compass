@@ -12,11 +12,13 @@ The tool identifies **citation gaps** — topics or prompt categories where your
 
 > In short, it’s *Google Analytics for Generative AI* — showing not just who mentions you, but who doesn’t and why.
 
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/54e48cf0-7a00-4ebf-a6bf-1af022263b05" />
+
 ---
 
 ## 🏁 Hackathon Track
 
--**Track:** Intelligent GEO (Generative Engine Optimization) Insights
+-**Track:** Track#01 Intelligent GEO (Generative Engine Optimization) Insights
 
 -**Category:** AI Search Visibility & SEO Intelligence
 
@@ -32,6 +34,8 @@ Input a brand or topic — the system auto-generates multiple prompt variations 
 
 Extracted citations are automatically logged and analyzed.
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/478a2aa7-e4ca-40d4-a818-547d0263748a" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/9da65cc0-cdbb-4c7c-9042-d2722794ba02" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/ec3fc414-df3f-48e5-ba95-75d90e072162" />
 
 
 ### 🔥 2. Citation Gap Heatmap
@@ -43,6 +47,9 @@ Visual heatmap showing which prompt types mention your brand and which don’t.
 - 🟢 High — Frequently cited
 - 🟡 Moderate — Occasionally cited
 - 🔴 Low / Missing — Citation gap detected
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/b2c45f11-e1c5-40f9-b062-6fe0a0b34e60" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/a3b45e44-48f6-455c-b353-a0792201b100" />
 
 ### 🧩 3. Competitor Benchmarking
 
@@ -280,6 +287,7 @@ OPENAI_API_KEY=your_openai_api_key
 ## 🧾 License
 
 MIT License © 2025  Team Green
+
 
 
 
