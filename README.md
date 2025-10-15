@@ -64,9 +64,8 @@ See how citation frequency evolves after content or GEO optimizations.
 
 ### 6.Geo-Gap-Compass Analysis By ReimagineWeb:.
 
-![1760523128864](image/README/1760523128864.png)
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/780b2f52-193a-4d5d-a935-7c9327d787ce" />
 
----
 ---
 
 ## 🧰 Tech Stack
@@ -267,4 +266,5 @@ OPENAI_API_KEY=your_openai_api_key
 ## 🧾 License
 
 MIT License © 2025  Team Green
+
 
