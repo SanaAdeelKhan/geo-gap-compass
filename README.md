@@ -31,6 +31,8 @@ The tool identifies **citation gaps** — topics or prompt categories where your
 Input a brand or topic — the system auto-generates multiple prompt variations (e.g., “how-to,” “comparison,” “definition”) and tests them via ChatGPT.
 
 Extracted citations are automatically logged and analyzed.
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/478a2aa7-e4ca-40d4-a818-547d0263748a" />
+
 
 ### 🔥 2. Citation Gap Heatmap
 
@@ -47,6 +49,10 @@ Visual heatmap showing which prompt types mention your brand and which don’t.
 Add up to 3 competitors to compare citation frequencies and prompt performance side-by-side.
 
 Identify which prompts trigger your competitors but skip your brand.
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/453b323d-46c2-4ed4-9701-67dcbbe209c9" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/ceab8cf9-884e-46bd-afeb-f4b725ada79e" />
+
+
 
 ### 💡 4. Actionable Insights
 
@@ -55,6 +61,14 @@ AI-generated, plain-language insights:
 > “You’re missing citations in comparison and tutorial prompts.”
 
 > “Your competitors appear 40% more often in how-to queries.”
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/2244b819-eed2-4366-b0b0-8a17e6cd398f" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/ead0c25f-9d07-401f-abf3-c3a81e17fa58" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/9a0679e1-f7ad-4bf8-b5d4-7e2ac8e964a2" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/59b87c37-317f-460e-a23b-ee7a37b98b36" />
+
 
 ### ⏱️ 5. (Optional) Time-Series Tracking
 
@@ -266,5 +280,6 @@ OPENAI_API_KEY=your_openai_api_key
 ## 🧾 License
 
 MIT License © 2025  Team Green
+
 
 
