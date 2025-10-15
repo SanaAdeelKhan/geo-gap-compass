@@ -261,4 +261,4 @@ OPENAI_API_KEY=your_openai_api_key
 
 ## 🧾 License
 
-MIT License © 2025 GEO Gap Compass Team
+MIT License © 2025  Team Green
