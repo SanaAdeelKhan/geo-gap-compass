@@ -109,6 +109,7 @@ See how citation frequency evolves after content or GEO optimizations.
 
 | **Deployment** | Vercel (frontend) / Render (backend) |
 
+https://geo-gap-compass.vercel.app/
 ---
 
 ## 🧭 System Architecture
@@ -287,6 +288,7 @@ OPENAI_API_KEY=your_openai_api_key
 ## 🧾 License
 
 MIT License © 2025  Team Green
+
 
 
 
