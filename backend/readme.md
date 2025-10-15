@@ -1,9 +1,10 @@
-# 🧠 GEO-Gap Compass — Backend API
+# 🌍 GEO Gap Compass - Backend
 
-This is the **FastAPI backend** for the GEO-Gap Compass project.
-It provides AI-powered endpoints for prompt processing, citation extraction, and creative reimagination features used by the frontend (Next.js).
+This is the **FastAPI backend** for the GEO Gap Compass project.
+It powers the AI and data APIs that interact with the frontend (Next.js app).
 
 ---
+
 
 ## 🚀 Tech Stack
 
@@ -14,49 +15,64 @@ It provides AI-powered endpoints for prompt processing, citation extraction, and
 
 ---
 
-## 📂 Project Structure
+## 🚀 Features
+
+- FastAPI-based modular architecture
+- Three main route modules:
+  - `/prompts` → AI Prompt Generation
+  - `/citations` → Citation Management
+  - `/reimagine` → Idea & Content Reimagination
+- CORS enabled for frontend (localhost:3000)
+- Interactive API Docs (Swagger + ReDoc)
+- Ready for local or production deployment
+
+---
+
+## 🧩 Project Structure
 
 ```
 geo-gap-compass/
 ├── backend/
-│   ├── app.py                # Main FastAPI entry point
-│   ├── routes/               # All route definitions
+│   ├── app.py              # Main FastAPI app
+│   ├── routes/
 │   │   ├── prompts.py
 │   │   ├── citations.py
-│   │   └── reimagine.py
+│   │   └── analyze.py
+│   │   └── domain_insights.py
 │   ├── utils/                # Helper functions and AI clients
 │   │   └── ai_client.py
 │   └── .venv/                # Virtual environment (optional local setup)
 └── frontend/                 # Next.js UI
+│   ├── requirements.txt
+│   └── README.md
 ```
 
 ---
 
-## 🧩 Setup Instructions
+## ⚙️ Installation & Run
 
-### 1️⃣ Create and activate a virtual environment
+### 1️⃣ Navigate to the backend folder
 
 ```bash
 cd backend
-python -m venv .venv
-.venv\Scripts\activate
 ```
 
-### 2️⃣ Install dependencies
+### 2️⃣ Create and activate virtual environment
+
+```bash
+python -m venv .venv
+.venv\Scripts\activate   # On Windows
+# or
+source .venv/bin/activate  # On macOS/Linux
+```
+
+### 3️⃣ Install dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-If you don’t have a `requirements.txt`, generate one:
-
-```bash
-pip freeze > requirements.txt
-```
-
----
-
-## ⚙️ Running the Backend
+### 4️⃣ Running the Backend
 
 Always run **from the project root**, not from inside `/backend`, so Python can resolve the `backend.` imports correctly.
 
@@ -64,40 +80,69 @@ Always run **from the project root**, not from inside `/backend`, so Python can 
 backend\.venv\Scripts\python.exe -m uvicorn backend.app:app --reload --port 8000
 ```
 
-Then open:
-👉 [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs) — Interactive API Docs
-👉 [http://127.0.0.1:8000](http://127.0.0.1:8000) — Root endpoint
+### 5️⃣ Test in browser
+
+🌐 **Base URL:**
+`http://127.0.0.1:8000` → Backend running message
+
+🌐 **Health Check:**
+`http://127.0.0.1:8000/health` → Health check
+
+📘 **Swagger UI:**
+`http://127.0.0.1:8000/docs` → Interactive API testing
+
+📗 **ReDoc UI:**
+`http://127.0.0.1:8000/redoc` → Clean API documentation
 
 ---
 
-## 🧠 Common Issues
+## 🧠 Example Response
 
-| Issue                                              | Cause                                  | Solution                                                           |
-| -------------------------------------------------- | -------------------------------------- | ------------------------------------------------------------------ |
-| `ModuleNotFoundError: No module named 'backend'` | Running from inside `/backend`       | Run from**project root** using full import path              |
-| `ModuleNotFoundError: No module named 'routes'`  | Missing `backend.` prefix in imports | Use `from backend.routes import ...`                             |
-| `127.0.0.1 refused to connect`                   | Port already in use or server crashed  | Restart Uvicorn and ensure no other service is using port `8000` |
+**GET** `http://127.0.0.1:8000/`
+
+```json
+{
+  "message": "GEO Gap Compass Backend is running successfully 🚀"
+}
+```
 
 ---
 
-## 🔗 Example Endpoints
+## 🔗 Frontend Connection Example (Next.js)
 
-| Route                | Description                  |
-| -------------------- | ---------------------------- |
-| `GET /`            | Health check endpoint        |
-| `POST /prompts/`   | Process text prompts         |
-| `POST /citations/` | Extract and rank citations   |
-| `POST /reimagine/` | Reimagine or rewrite content |
+Inside your frontend (e.g., `utils/api.js`):
+
+```javascript
+export async function fetchHealth() {
+  const res = await fetch("http://127.0.0.1:8000/health");
+  const data = await res.json();
+  return data;
+}
+```
+
+Usage:
+
+```javascript
+useEffect(() => {
+  fetchHealth().then(console.log);
+}, []);
+```
+
+---
+
+## 📘 API Docs Auto-Generated
+
+- **Swagger UI:** [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
+- **ReDoc:** [http://127.0.0.1:8000/redoc](http://127.0.0.1:8000/redoc)
+
+Example endpoints:
+
+- `/` → Welcome message
+- `/health` → Health check
+- `/prompts/...`, `/citations/...`, `/reimagine/...` → Functional APIs
 
 ---
 
 ## 🧾 License
 
-MIT License © 2025 GEO-Gap Compass Team
-
----
-
-## 👩‍💻 Maintainers
-
-- **Sana Adeel**
-- **Ali Jafar**
+MIT License © GEO Gap Compass Team

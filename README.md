@@ -8,7 +8,7 @@
 
 **GEO Gap Compass** is an AI-powered visibility analytics dashboard that helps brands understand how often (and where) they are cited by AI assistants such as ChatGPT.
 
-The tool identifies **citation gaps** — topics or prompt categories where your brand should appear but doesn’t — and offers actionable insights using data from **Reimagine.web SEO metrics**.
+The tool identifies **citation gaps** — topics or prompt categories where your brand should appear but doesn’t — and offers actionable insights.
 
 > In short, it’s *Google Analytics for Generative AI* — showing not just who mentions you, but who doesn’t and why.
 
@@ -19,8 +19,6 @@ The tool identifies **citation gaps** — topics or prompt categories where your
 -**Track:** Intelligent GEO (Generative Engine Optimization) Insights
 
 -**Category:** AI Search Visibility & SEO Intelligence
-
--**Duration:** 48 Hours
 
 -**Goal:** Build an intelligent GEO insights tool using Reimagine.web and AI APIs.
 
@@ -50,13 +48,7 @@ Add up to 3 competitors to compare citation frequencies and prompt performance s
 
 Identify which prompts trigger your competitors but skip your brand.
 
-### 📈 4. Reimagine.web Integration
-
-Fetch SEO/GEO scores of cited domains from Reimagine.web and compare them with your site.
-
-Highlight areas where higher-ranked competitors gain visibility in AI responses.
-
-### 💡 5. Actionable Insights
+### 💡 4. Actionable Insights
 
 AI-generated, plain-language insights:
 
@@ -64,7 +56,7 @@ AI-generated, plain-language insights:
 
 > “Your competitors appear 40% more often in how-to queries.”
 
-### ⏱️ 6. (Optional) Time-Series Tracking
+### ⏱️ 5. (Optional) Time-Series Tracking
 
 Track visibility trends over time (synthetic or real data).
 
@@ -84,7 +76,7 @@ See how citation frequency evolves after content or GEO optimizations.
 
 | **AI APIs** | OpenAI API (GPT-4 / GPT-4o-mini) |
 
-| **SEO/GEO Data** | Reimagine.web API |
+| **SEO/GEO Data** | DuckDuckGo |
 
 | **Database** | SQLite / JSON storage |
 
@@ -110,7 +102,7 @@ flowchart TD
 
     E --> F[Gap Analysis Engine]
 
-    F --> G[Reimagine.web API]
+    F --> G[DuckDuckGo/GPT-4o mini]
 
     G --> H[Insights Generator]
 
@@ -144,7 +136,7 @@ cd backend
 
 pip install-requirements.txt
 
-uvicornapp:app--reload
+backend\.venv\Scripts\python.exe -m uvicorn backend.app:app --reload --port 8000
 
 ```
 
@@ -180,7 +172,6 @@ Create a `.env` file in the backend directory:
 
 OPENAI_API_KEY=your_openai_api_key
 
-REIMAGINE_API_KEY=your_reimagine_api_key
 
 ```
 
@@ -251,8 +242,6 @@ REIMAGINE_API_KEY=your_reimagine_api_key
 
 ✅ Combines prompt intelligence + GEO analytics
 
-✅ Achievable in 48 hours yet visually impressive
-
 ✅ Perfectly aligned with Reimagine.web integration goals
 
 ✅ Balanced blend of innovation, technical skill, and real-world value
@@ -261,13 +250,12 @@ REIMAGINE_API_KEY=your_reimagine_api_key
 
 ## 👥 Team
 
-| Name | Role | Contribution |
-
-|------|------|---------------|
-
-| **Sana Adeel** | Product Lead | Concept, Design, Documentation |
-
-| **Ali Jafar** | Dev Team | API Integration, Frontend, Demo |
+| Team Members   | GitHub                            | LinkedIN                                              |
+| -------------- | --------------------------------- | ----------------------------------------------------- |
+| Sana Adeel     | https://github.com/SanaAdeelKhan  | https://www.linkedin.com/in/engr-sana-adeel-a1860ab1/ |
+| Ali Jafar      | https://github.com/alijafarkamal  | https://www.linkedin.com/in/-ali-jafar/               |
+| Maria Nadeem   | https://github.com/marianadeem755 | https://www.linkedin.com/in/maria-nadeem-4994122aa/   |
+| Mehak Iftikhar | https://github.com/mehakiftikhar  | https://www.linkedin.com/in/mehak-iftikhar/           |
 
 ---
 

@@ -132,7 +132,7 @@ async def get_domain_stats(
 @router.post("/analyze-domains")
 async def analyze_domains_detailed(request: DomainInsightRequest):
     """
-    Detailed domain analysis using OpenAI.
+    Detailed domain analysis using priority: DuckDuckGo → OpenAI → Mock Data.
     
     Example:
     {
@@ -144,24 +144,49 @@ async def analyze_domains_detailed(request: DomainInsightRequest):
     if not request.domains:
         raise HTTPException(status_code=400, detail="No domains provided")
     
-    # Get basic domain info first
+    demo = load_demo_data()
+    
+    # Priority 1: Get basic domain info from DuckDuckGo
     basic_info = {}
     for domain in request.domains:
-        basic_info[domain] = await fetch_domain_info_duckduckgo(domain)
+        ddg_data = await fetch_domain_info_duckduckgo(domain)
+        
+        # If DuckDuckGo failed, fallback to demo data
+        if ddg_data.get("source") == "error":
+            base = demo.get(domain, demo.get("default", {"visibility": 50}))
+            basic_info[domain] = {
+                "title": domain,
+                "description": f"Demo data (DuckDuckGo unavailable): {domain}",
+                "image": "https://dummyimage.com/600x400/ddd/000.png&text=Demo",
+                "source": "mock-fallback",
+                "visibility_score": base.get("visibility", 50)
+            }
+        else:
+            basic_info[domain] = ddg_data
     
-    # Get AI analysis
-    ai_result = await analyze_domains(
-        domains=request.domains,
-        brand=request.brand
-    )
+    # Priority 2: Get AI analysis from OpenAI (if available)
+    ai_result = None
+    analysis_text = ""
+    tokens_used = 0
+    is_mock = False
     
-    # Parse AI analysis for structured data
-    analysis_text = ai_result.get("analysis", "")
+    if OPENAI_AVAILABLE:
+        ai_result = await analyze_domains(
+            domains=request.domains,
+            brand=request.brand
+        )
+        analysis_text = ai_result.get("analysis", "")
+        tokens_used = ai_result.get("tokens_used", 0)
+        is_mock = ai_result.get("is_mock", False)
+    else:
+        # Priority 3: Fallback to mock analysis
+        analysis_text = f"Mock analysis for {request.brand} domains: {', '.join(request.domains)}"
+        is_mock = True
     
     # Extract insights per domain
     domain_insights = {}
     for domain in request.domains:
-        # Simple extraction - count mentions and look for keywords
+        # Count mentions in analysis
         mentions = analysis_text.lower().count(domain.lower())
         
         # Look for authority indicators
@@ -185,9 +210,13 @@ async def analyze_domains_detailed(request: DomainInsightRequest):
         "analysis_type": request.analysis_type,
         "domains": domain_insights,
         "full_analysis": analysis_text,
-        "tokens_used": ai_result.get("tokens_used"),
+        "tokens_used": tokens_used,
         "using_openai": OPENAI_AVAILABLE,
-        "is_mock": ai_result.get("is_mock", False)
+        "is_mock": is_mock,
+        "data_sources": {
+            "basic_info": "DuckDuckGo API (with mock fallback)",
+            "analysis": "OpenAI" if OPENAI_AVAILABLE else "Mock"
+        }
     }
 
 
