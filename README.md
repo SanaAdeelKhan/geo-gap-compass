@@ -107,7 +107,7 @@ See how citation frequency evolves after content or GEO optimizations.
 
 | **Visualization** | Recharts (Heatmap, Trend Graphs) |
 
-| **Deployment** | Vercel (frontend) + Railway / Render (backend) |
+| **Deployment** | Vercel (frontend) / Render (backend) |
 
 ---
 
@@ -287,6 +287,7 @@ OPENAI_API_KEY=your_openai_api_key
 ## 🧾 License
 
 MIT License © 2025  Team Green
+
 
 
 
