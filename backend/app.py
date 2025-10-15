@@ -1,7 +1,7 @@
 # backend/main.py
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from backend.routes import prompts, citations, analyze, domain_insights
+from routes import prompts, citations, analyze, domain_insights
 
 app = FastAPI(
     title="GEO Gap Compass - Backend",
@@ -32,7 +32,7 @@ async def root():
 
 @app.get("/health")
 async def health():
-    from backend.utils.ai_client import OPENAI_AVAILABLE
+    from utils.ai_client import OPENAI_AVAILABLE
     return {
         "status": "healthy",
         "openai_enabled": OPENAI_AVAILABLE

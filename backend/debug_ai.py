@@ -24,6 +24,6 @@ except ImportError as e:
     print(f"OPENAI_AVAILABLE: {OPENAI_AVAILABLE}")
 
 print("\n=== From actual module ===")
-from backend.utils.ai_client import OPENAI_AVAILABLE as MODULE_AVAILABLE, OPENAI_KEY as MODULE_KEY
+from utils.ai_client import OPENAI_AVAILABLE as MODULE_AVAILABLE, OPENAI_KEY as MODULE_KEY
 print(f"Module OPENAI_KEY: {bool(MODULE_KEY)}")
 print(f"Module OPENAI_AVAILABLE: {MODULE_AVAILABLE}")
