@@ -1,0 +1,137 @@
+/* app/globals.css */
+
+/* --- Tailwind layers (required) --- */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* -------------------------
+   Design system — color tokens
+   ------------------------- */
+:root {
+  --color-bg: 255, 255, 255;         /* Background: rgb(255,255,255) */
+  --color-button: 239, 239, 239;     /* Button: rgb(239,239,239) */
+  --color-button-text: 0, 0, 0;      /* Button text: rgb(0,0,0) */
+  --color-paragraph: 31, 35, 40;     /* Paragraph: rgb(31,35,40) */
+  --color-headline: 255, 255, 255;   /* Headline: rgb(255,255,255) (for hero on colored bg) */
+  --color-tertiary: 255, 255, 255;   /* Tertiary: rgb(255,255,255) */
+  --color-card: 216, 238, 254;       /* Card: #d8eefe -> rgb(216,238,254) */
+
+  --radius-lg: 16px;
+  --radius-md: 10px;
+  --shadow-soft: 0 6px 20px rgba(16,24,40,0.06);
+  --shadow-focus: 0 8px 40px rgba(37,99,235,0.12);
+}
+
+/* -------------------------
+   Minimal reset + base styles
+   ------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html, body, #__next {
+  height: 100%;
+}
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background-color: rgb(var(--color-bg));
+  color: rgb(var(--color-paragraph));
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Headline default if you want a white hero headline over colored background */
+.headline {
+  color: rgb(var(--color-headline));
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* Paragraph helper */
+.para {
+  color: rgb(var(--color-paragraph));
+  line-height: 1.6;
+}
+
+/* Tertiary text helper (muted on colored backgrounds) */
+.tertiary {
+  color: rgb(var(--color-tertiary));
+  opacity: 0.85;
+}
+
+/* -------------------------
+   Tailwind component utilities
+   (keeps markup DRY & attractive)
+   ------------------------- */
+@layer components {
+  /* Generic card */
+  .card {
+    @apply rounded-[var(--radius-lg)] p-6;
+    background-color: rgb(var(--color-card));
+    box-shadow: var(--shadow-soft);
+  }
+
+  /* Standard button */
+  .btn {
+    @apply inline-flex items-center justify-center rounded-[var(--radius-md)] px-4 py-2 text-sm font-medium transition;
+    background-color: rgb(var(--color-button));
+    color: rgb(var(--color-button-text));
+  }
+
+  /* Primary CTA button — use this for main actions */
+  .btn-cta {
+    @apply inline-flex items-center justify-center rounded-[var(--radius-md)] px-6 py-3 text-base font-semibold shadow;
+    background-color: rgb(37 99 235); /* fallback blue */
+    color: white;
+    box-shadow: var(--shadow-soft);
+  }
+  .btn-cta:hover { box-shadow: var(--shadow-focus); transform: translateY(-1px); }
+
+  /* Microcopy near CTA (anxiety reducer) */
+  .cta-microcopy {
+    @apply text-xs mt-2 text-gray-500;
+  }
+
+  /* Small badge styles */
+  .badge {
+    @apply inline-block px-2 py-0.5 text-xs font-semibold rounded-full bg-white/70 text-gray-700;
+  }
+
+  /* Heatmap tile (useful for your gap cells) */
+  .heat-tile {
+    @apply flex items-center justify-center rounded-md font-semibold text-sm;
+    min-height: 40px;
+  }
+}
+
+/* -------------------------
+   Utilities we often use
+   ------------------------- */
+@layer utilities {
+  .shadow-soft { box-shadow: var(--shadow-soft) !important; }
+  .rounded-lg-2xl { border-radius: calc(var(--radius-lg) + 4px); }
+  .text-paragraph { color: rgb(var(--color-paragraph)); }
+}
+
+/* -------------------------
+   Accessibility focus styles
+   ------------------------- */
+:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(37,99,235,0.12);
+  border-radius: 8px;
+}
+
+/* -------------------------
+   Small responsive niceties (feel free to adjust)
+   ------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
