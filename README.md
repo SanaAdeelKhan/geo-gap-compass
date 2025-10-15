@@ -62,6 +62,11 @@ Track visibility trends over time (synthetic or real data).
 
 See how citation frequency evolves after content or GEO optimizations.
 
+### 6.Geo-Gap-Compass Analysis By ReimagineWeb:.
+
+![1760523128864](image/README/1760523128864.png)
+
+---
 ---
 
 ## 🧰 Tech Stack
@@ -262,3 +267,4 @@ OPENAI_API_KEY=your_openai_api_key
 ## 🧾 License
 
 MIT License © 2025  Team Green
+
