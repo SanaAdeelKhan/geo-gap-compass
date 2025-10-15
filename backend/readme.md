@@ -5,7 +5,6 @@ It powers the AI and data APIs that interact with the frontend (Next.js app).
 
 ---
 
-
 ## 🚀 Tech Stack
 
 - **FastAPI** — lightweight, high-performance web framework
@@ -21,7 +20,7 @@ It powers the AI and data APIs that interact with the frontend (Next.js app).
 - Three main route modules:
   - `/prompts` → AI Prompt Generation
   - `/citations` → Citation Management
-  - `/reimagine` → Idea & Content Reimagination
+  - `/domain_insights` → Brand Insights
 - CORS enabled for frontend (localhost:3000)
 - Interactive API Docs (Swagger + ReDoc)
 - Ready for local or production deployment
